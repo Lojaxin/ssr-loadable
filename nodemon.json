@@ -1,0 +1,10 @@
+{
+  "ignore": [
+    "pages",
+    "public"
+  ],
+  "execMap": {
+    "js": "babel-node",
+    "jsx": "babel-node"
+  }
+}
