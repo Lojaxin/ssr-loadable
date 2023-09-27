@@ -3,6 +3,8 @@ import LoadablePlugin from '@loadable/webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 const production = process.env.NODE_ENV === 'production';
+//build:start需要执行所有的build配置
+console.log('%c [ production ]-6', 'font-size:13px; background:pink; color:#bf2c9f;', production)
 
 export default {
     mode: production ? 'production' : 'development',

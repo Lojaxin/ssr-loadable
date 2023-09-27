@@ -8,7 +8,7 @@
     "build:all": "webpack --config config/webpack.all.babel.js",
     "build:dev": "yarn build:client && yarn build:server && yarn build:all",
     "dev": "node ./public/dist/server/main.js",
-    "build:start": "NODE_ENV=production && yarn build:client && yarn build:server && yarn build:all",
+    "build:start": "NODE_ENV=production webpack --config config/webpack.all.babel.js",
     "start": "NODE_ENV=production node ./public/dist/server/main.js"
   },
   "dependencies": {
