@@ -16,12 +16,27 @@ export default {
     plugins: [new CleanWebpackPlugin(), new LoadablePlugin()],
     module: {
         rules: [
+            // {
+            //     test: /\.s?css$/,
+            //     exclude: /node_moduels/,
+            //     // include: path.resolve(__dirname, '../src'),
+            //     //loader的执行顺序是从右到左,从下到上
+            //     use: ['style-loader', 'css-loader', 'sass-loader']
+            // },
             {
-                test: /\.s?css$/,
-                exclude: /node_moduels/,
-                include: path.resolve(__dirname, '../src'),
-                //loader的执行顺序是从右到左,从下到上
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                test: /\.module\.s?css$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                localIdentName: '[name]__[local]--[hash:base64:5]',
+                            },
+                        },
+                    },
+                    'sass-loader',
+                ],
             },
             {
                 test: /\.(jpe?g|png|svg|gif|webp)$/,

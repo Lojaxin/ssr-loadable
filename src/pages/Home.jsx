@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-// import './index.scss';
+import HomeContext from "../store/home";
+// import styles from './index.module.scss';
 
 export default function (props) {
-    console.log('%c [ props ]-4', 'font-size:13px; background:pink; color:#bf2c9f;', props)
 
+    const store = useContext(HomeContext);
+    console.log('%c [ store ]-9', 'font-size:13px; background:pink; color:#bf2c9f;', store)
     const handleClick = () => {
         console.log('handleClick')
     };

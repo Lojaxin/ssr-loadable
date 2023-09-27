@@ -1,11 +1,13 @@
 {
     "ignore": [
-        "pages",
-        "public"
+        "node_modules",
+        "pages"
     ],
     "execMap": {
         "js": "babel-node",
-        "jsx": "babel-node",
-        "scss": "node-sass"
-    }
+        "jsx": "babel-node"
+    },
+    "watch": [
+        "src"
+    ]
 }

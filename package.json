@@ -6,8 +6,8 @@
     "build:client": "webpack --config=./config/webpack.client.babel.js",
     "build:server": "webpack --config config/webpack.server.babel.js",
     "build": "yarn build:client && yarn build:server",
-    "dev": "nodemon ./index.js",
-    "start": "NODE_ENV=production node ./public/dist/node/main.js"
+    "dev": "node ./public/dist/node/main.js",
+    "start": "CUSTOM_ENV=production node ./public/dist/node/main.js"
   },
   "dependencies": {
     "@loadable/component": "^5.15.3",

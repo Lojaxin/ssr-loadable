@@ -96,7 +96,7 @@ export default function(){
 }
 ```
 
--   4.因为node环境无法执行ESM的语法,需要babel来进行解析,所以这里使用nodemon来执行
+-   4.因为node环境无法执行ESM的语法,需要babel来进行解析,所以这里使用nodemon来执行(其实只用babel打包之后再运行是可以的,这里为了调试方便)
 
 ```nodemon.json
 {

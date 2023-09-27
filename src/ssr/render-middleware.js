@@ -1,10 +1,10 @@
-// export { default as APP } from '../App';
+
 import React from 'react';
 import path from 'path';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
 import { ChunkExtractor } from '@loadable/server';
-import App from '../App';
+// import App from '../App';
 import routes from '../routes';
 import HomeContext from '../store/home';
 
@@ -36,8 +36,7 @@ export default function () {
         // 创建一个 ChunkExtractor，在渲染过程中收集需要的代码块
         const extractor = new ChunkExtractor({ statsFile });
 
-        // 这里需要使用node打包出来的入口来作为渲染的入口,所以在服务端的 build 应该是从App组件开始的,下面直接引入了App,但是scss文件是无法解析的;
-        // const entrypoint = nodeExtractor.requireEntrypoint(); // 加载默认入口点
+        const { default: App } = extractor.requireEntrypoint();
 
         const jsx = extractor.collectChunks(
             <StaticRouter location={req.url} context={context}>
