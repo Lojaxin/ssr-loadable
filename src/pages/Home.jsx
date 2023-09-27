@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import HomeContext from "../store/home";
-// import styles from './index.module.scss';
+import styles from './index.module.scss';
 
 export default function (props) {
 
@@ -16,7 +16,7 @@ export default function (props) {
     }, [])
     return (
         <div>
-            <h1 className="test">Home</h1>
+            <h1 className={styles.home}>Home</h1>
             <img src="/wate.png" alt="" width={200} />
             <button onClick={handleClick}>按钮</button>
             <br />

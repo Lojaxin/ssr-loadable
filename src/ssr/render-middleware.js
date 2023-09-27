@@ -12,10 +12,12 @@ import HomeContext from '../store/home';
 export default function () {
 
     let statsFile = path.resolve(__dirname, '../../public/dist/web/loadable-stats.json');
+    let nodeStatsFile = path.resolve(__dirname, '../../public/dist/node/loadable-stats.json');
     statsFile = statsFile.replace('public/public', 'public');
+    nodeStatsFile = nodeStatsFile.replace('public/public', 'public');
 
-    console.log('--------', process.env.CUSTOM_ENV)
-    if (process.env.CUSTOM_ENV === 'production') {
+    console.log('--------', process.env.NODE_ENV)
+    if (process.env.NODE_ENV === 'production') {
         console.log('生产环境')
     }
 
@@ -35,8 +37,9 @@ export default function () {
 
         // 创建一个 ChunkExtractor，在渲染过程中收集需要的代码块
         const extractor = new ChunkExtractor({ statsFile });
+        const nodeExtractor = new ChunkExtractor({ statsFile: nodeStatsFile });
 
-        const { default: App } = extractor.requireEntrypoint();
+        const { default: App } = nodeExtractor.requireEntrypoint();
 
         const jsx = extractor.collectChunks(
             <StaticRouter location={req.url} context={context}>

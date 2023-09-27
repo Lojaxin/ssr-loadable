@@ -5,9 +5,11 @@
   "scripts": {
     "build:client": "webpack --config=./config/webpack.client.babel.js",
     "build:server": "webpack --config config/webpack.server.babel.js",
-    "build": "yarn build:client && yarn build:server",
-    "dev": "node ./public/dist/node/main.js",
-    "start": "CUSTOM_ENV=production node ./public/dist/node/main.js"
+    "build:all": "webpack --config config/webpack.all.babel.js",
+    "build:dev": "yarn build:client && yarn build:server && yarn build:all",
+    "dev": "node ./public/dist/server/main.js",
+    "build:start": "NODE_ENV=production && yarn build:client && yarn build:server && yarn build:all",
+    "start": "NODE_ENV=production node ./public/dist/server/main.js"
   },
   "dependencies": {
     "@loadable/component": "^5.15.3",

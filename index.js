@@ -1,5 +1,5 @@
 import express from 'express';
-import renderHtml from './src/ssr/server-render';
+import renderHtml from './src/ssr/render-middleware';
 
 class App {
     constructor() {
